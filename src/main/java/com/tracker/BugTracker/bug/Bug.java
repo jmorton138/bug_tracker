@@ -4,7 +4,7 @@ import com.tracker.BugTracker.project.Project;
 import jakarta.persistence.*;
 
 @Entity
-public class BugReport {
+public class Bug {
     @Id
     @GeneratedValue
     private int id;

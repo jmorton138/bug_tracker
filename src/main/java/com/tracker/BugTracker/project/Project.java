@@ -1,6 +1,6 @@
 package com.tracker.BugTracker.project;
 
-import com.tracker.BugTracker.bug.BugReport;
+import com.tracker.BugTracker.bug.Bug;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public class Project {
     @Column(nullable = false)
     private String name;
     @OneToMany(mappedBy = "project")
-    private List<BugReport> bugReports;
+    private List<Bug> bugs;
 
     public int getId() {
         return id;
