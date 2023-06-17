@@ -2,6 +2,7 @@ package com.tracker.BugTracker.api;
 
 import com.tracker.BugTracker.models.BugReport;
 import com.tracker.BugTracker.service.BugReportService;
+import com.tracker.BugTracker.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class BugReportController {
     @Autowired
-    BugReportService bugReportService;
+    private BugReportService bugReportService;
+    @Autowired
+    private ProjectService projectService;
     @GetMapping("/")
     public String showReportsList(Model model) {
         model.addAttribute("reports", bugReportService.getAllBugReports());
@@ -20,6 +23,7 @@ public class BugReportController {
     @GetMapping("/bug-report")
     public String bugReportForm(Model model) {
         model.addAttribute("bugReport", new BugReport());
+        model.addAttribute("projects", projectService.getAllProjects());
         return "bug-report";
     }
 

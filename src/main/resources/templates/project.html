@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta http-equiv="Content-Type"  />
+    <title>Bug Report</title>
+  </head>
+  <body>
+    <h1>Report an issue</h1>
+    <form action="#" th:action="@{/project}" th:object="${project}" method="post">
+      <input type="text" th:field="*{name}"/>
+      <input type="submit" value="Submit"/>
+    </form>
+  </body>
+</html>
