@@ -1,5 +1,6 @@
-package com.tracker.BugTracker.models;
+package com.tracker.BugTracker.bug;
 
+import com.tracker.BugTracker.project.Project;
 import jakarta.persistence.*;
 
 @Entity

@@ -1,11 +1,10 @@
-package com.tracker.BugTracker.service;
+package com.tracker.BugTracker.bug;
 
-import com.tracker.BugTracker.dao.BugReportRepo;
-import com.tracker.BugTracker.models.BugReport;
+import com.tracker.BugTracker.bug.BugReportRepo;
+import com.tracker.BugTracker.bug.BugReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,8 +1,6 @@
-package com.tracker.BugTracker.api;
+package com.tracker.BugTracker.bug;
 
-import com.tracker.BugTracker.models.BugReport;
-import com.tracker.BugTracker.service.BugReportService;
-import com.tracker.BugTracker.service.ProjectService;
+import com.tracker.BugTracker.project.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

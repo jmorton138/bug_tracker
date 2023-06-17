@@ -1,5 +1,6 @@
-package com.tracker.BugTracker.models;
+package com.tracker.BugTracker.project;
 
+import com.tracker.BugTracker.bug.BugReport;
 import jakarta.persistence.*;
 
 import java.util.List;

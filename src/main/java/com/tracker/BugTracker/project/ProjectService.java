@@ -1,7 +1,5 @@
-package com.tracker.BugTracker.service;
+package com.tracker.BugTracker.project;
 
-import com.tracker.BugTracker.dao.ProjectRepo;
-import com.tracker.BugTracker.models.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
