@@ -1,7 +1,10 @@
 package com.tracker.BugTracker.bug;
 
+import com.tracker.BugTracker.comment.Comment;
 import com.tracker.BugTracker.project.Project;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Bug {
@@ -13,6 +16,9 @@ public class Bug {
     @ManyToOne
     @JoinColumn(name="project_id")
     private Project project;
+
+    @OneToMany(mappedBy = "bug")
+    private List<Comment> comments;
 
     public long getId() {
         return id;

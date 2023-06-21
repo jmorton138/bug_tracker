@@ -7,10 +7,10 @@
     <body>
     <header th:insert="~{navbar}"></header>
 
-    <h1>Bug an issue</h1>
+    <h1>Report an issue</h1>
     <form action="#" th:action="@{/bug-report}" th:object="${bug}" method="post">
         <input type="text" th:field="*{description}"/>
-        <select th:field="*{project}" >
+        <select th:field="*{project}" required>
             <option th:each="project: ${projects}" th:value="${project.id}" th:text="${project.name}"></option>
         </select>
         <input type="submit" value="Submit"/>
