@@ -5,6 +5,8 @@
         <title>Bug Bug</title>
     </head>
     <body>
+    <header th:insert="~{navbar}"></header>
+
     <h1>Bug an issue</h1>
     <form action="#" th:action="@{/bug-report}" th:object="${bug}" method="post">
         <input type="text" th:field="*{description}"/>

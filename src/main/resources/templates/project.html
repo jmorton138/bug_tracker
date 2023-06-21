@@ -5,7 +5,9 @@
     <title>Report Bug</title>
   </head>
   <body>
-    <h1>Report an issue</h1>
+  <header th:insert="~{navbar}"></header>
+
+  <h1>Create Project</h1>
     <form action="#" th:action="@{/project}" th:object="${project}" method="post">
       <input type="text" th:field="*{name}"/>
       <input type="submit" value="Submit"/>
