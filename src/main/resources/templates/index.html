@@ -2,15 +2,19 @@
 <html xmlns:th="https://www.thymeleaf.org"><head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
+<header th:insert="~{navbar}"></header>
     <h1>All Bugs</h1>
     <tbody>
-    <tr th:each="report : ${reports}">
-        <td th:text="${report.id}"></td>
+    <ul th:each="report : ${reports}">
 
-        <td th:text="${report.description}"></td>
-    </tr>
+        <li >
+            <a th:text="${report.description}" th:href="@{/bug-report/{id}(id=${report.id})}">view</a>
+
+        </li>
+    </ul>
     </tbody>
 </body>
 </html>

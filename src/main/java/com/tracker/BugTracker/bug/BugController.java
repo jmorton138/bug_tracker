@@ -1,5 +1,7 @@
 package com.tracker.BugTracker.bug;
 
+import com.tracker.BugTracker.comment.Comment;
+import com.tracker.BugTracker.comment.CommentService;
 import com.tracker.BugTracker.project.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 public class BugController {
     @Autowired
     private BugService bugService;
+    @Autowired
+    private CommentService commentService;
+
     @Autowired
     private ProjectService projectService;
     @GetMapping("/")
@@ -28,6 +33,8 @@ public class BugController {
     @GetMapping("/bug-report/{id}")
     public String getBug(@PathVariable("id") int id, Model model) {
         Bug bug = bugService.getBugById(id);
+        model.addAttribute("comment", new Comment());
+        model.addAttribute("comments", commentService.getAllComments(id));
         model.addAttribute("report", bug);
         return "read-report";
     }

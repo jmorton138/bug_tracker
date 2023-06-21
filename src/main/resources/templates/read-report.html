@@ -5,10 +5,18 @@
   <title>Bug Bug</title>
 </head>
 <body>
+<header th:insert="~{navbar}"></header>
+
     <h1>Read report</h1>
     <p th:text="${report.id}"></p>
     <p th:text="${report.description}"></p>
-
-
+    <p th:text="${report.project.name}"></p>
+    <form th:action="@{/bug-report/{id}/comments(id=${report.id})}" th:object="${comment}" method="post">
+        <input th:field="*{body}"></input>
+        <input type="submit" value="Leave Comment" />
+    </form>
+    <ul th:each="comment: ${comments}">
+        <li th:text="${comment.body}"></li>
+    </ul>
 </body>
 </html>
