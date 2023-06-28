@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class RegistrationController {
     @Autowired
@@ -23,8 +25,13 @@ public class RegistrationController {
         return "register";
     }
     @PostMapping("user/registration")
-    public String registerUser(@ModelAttribute("user") User user) {
-        // if already exists
+    public String registerUser(@ModelAttribute("user") User user, Model model) {
+        List<Object> userExists = userService.isUserPresent(user);
+        if ((Boolean) userExists.get(0)) {
+            model.addAttribute("message", userExists.get(1));
+            System.out.println(userExists.get(1));
+            return "register";
+        }
         userService.saveUser(user);
         return "redirect:/";
     }

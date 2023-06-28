@@ -8,6 +8,9 @@
         <header th:insert="~{navbar}"></header>
 
         <h1>Create Account</h1>
+        <div th:if="${message}">
+            <p th:text="${message}"/>
+        </div>
         <form th:action="@{/user/registration}" th:object="${user}" method="POST" enctype="utf8">
             <div>
                 <label>email</label>
