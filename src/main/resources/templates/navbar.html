@@ -29,8 +29,10 @@
                     </li>
                 </ul>
                 <span class="navbar-text">
-      Navbar text with an inline element
-    </span>
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Sign Out"/>
+                    </form>
+                </span>
             </div>
         </nav>
     </div>
