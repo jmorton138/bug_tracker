@@ -28,7 +28,12 @@ public class WebSecurityConfig {
                         .requestMatchers("/", "/bug-report", "/user/registration", "/h2-console/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin(withDefaults());
+                .formLogin((form) -> form
+                        .loginPage("/login")
+                        .permitAll()
+                )
+                .logout((logout) -> logout.permitAll());
+//                .formLogin(withDefaults());
         return http.build();
 //        http
 //                .authorizeHttpRequests((requests) -> requests
