@@ -25,6 +25,17 @@ public class UserService implements UserDetailsService {
         user.setRole(Role.USER);
         userRepo.save(user);
     }
+
+    public List<Object> isPasswordConfirmed(User user) {
+        boolean passwordConfirmed = true;
+        String message = null;
+        if (!user.getPassword().equals(user.getMatchingPassword())) {
+            message = "Passwords don't match";
+            passwordConfirmed = false;
+        }
+        return Arrays.asList(passwordConfirmed, message);
+
+    }
     public List<Object> isUserPresent(User user) {
         boolean userExists = false;
         String message = null;

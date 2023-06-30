@@ -26,14 +26,20 @@ public class RegistrationController {
     }
     @PostMapping("user/registration")
     public String registerUser(@ModelAttribute("user") User user, Model model) {
+        List<Object> passwordConfirmed = userService.isPasswordConfirmed(user);
+        if (!(Boolean) passwordConfirmed.get(0)) {
+            model.addAttribute("message", passwordConfirmed.get(1));
+            return "register";
+        }
         List<Object> userExists = userService.isUserPresent(user);
         if ((Boolean) userExists.get(0)) {
             model.addAttribute("message", userExists.get(1));
             System.out.println(userExists.get(1));
             return "register";
         }
+
         userService.saveUser(user);
-        return "redirect:/";
+        return "redirect:/login";
     }
 
 
