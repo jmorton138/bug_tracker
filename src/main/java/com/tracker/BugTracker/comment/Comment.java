@@ -1,6 +1,7 @@
 package com.tracker.BugTracker.comment;
 
 import com.tracker.BugTracker.bug.Bug;
+import com.tracker.BugTracker.user.User;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,9 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name="bug_id")
     private Bug bug;
+
+    @OneToOne
+    private User author;
 
     public int getId() {
         return Id;
@@ -36,5 +40,13 @@ public class Comment {
 
     public void setBug(Bug bug) {
         this.bug = bug;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

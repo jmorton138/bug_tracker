@@ -15,8 +15,9 @@
         <input th:field="*{body}"></input>
         <input type="submit" value="Leave Comment" />
     </form>
-    <ul th:each="comment: ${comments}">
-        <li th:text="${comment.body}"></li>
-    </ul>
+    <div th:each="comment: ${comments}">
+        <label th:text="${comment.author.email}"></label>
+        <p th:text="${comment.body}"></p>
+    </div>
 </body>
 </html>

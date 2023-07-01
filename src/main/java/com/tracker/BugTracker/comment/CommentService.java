@@ -2,7 +2,9 @@ package com.tracker.BugTracker.comment;
 
 import com.tracker.BugTracker.bug.Bug;
 import com.tracker.BugTracker.bug.BugRepo;
+import com.tracker.BugTracker.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +21,10 @@ public class CommentService {
         return commentRepo.findAllByBugId(bugId);
     }
     public Optional<Comment> addComment(Comment comment, int bugId) {
+        User author = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return bugRepo.findById(bugId).map(bug -> {
             comment.setBug(bug);
+            comment.setAuthor(author);
             return commentRepo.save(comment);
         });
         //commentRepo.save(comment);
