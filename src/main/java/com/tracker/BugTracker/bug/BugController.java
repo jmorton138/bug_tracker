@@ -23,6 +23,12 @@ public class BugController {
         return "index";
 
     }
+
+    @GetMapping("/login")
+    public String loginView() {
+        return "login";
+    }
+
     @GetMapping("/bug-report")
     public String bugForm(Model model) {
         model.addAttribute("bug", new Bug());
